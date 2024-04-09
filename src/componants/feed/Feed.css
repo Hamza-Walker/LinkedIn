@@ -1,0 +1,14 @@
+.feed {
+	flex: 0.6;
+	margin: 0 20px;
+}
+
+.feed__inputContainer {
+	display: flex;
+justify-content: space-evenly;
+padding-bottom: 10px;
+		border-radius: 10px;
+marging-bottom: 20px;
+}
+
+
