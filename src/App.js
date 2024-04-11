@@ -40,7 +40,7 @@ function App() {
         <div className="app__body">
           <Sidebar />
           <Feed />
-          {/* <widget /> */}
+           <widget />
         </div>
       )}
     </div>
