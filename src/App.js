@@ -9,6 +9,7 @@ import { Login } from "./pages/Login";
 import { auth } from "./db/firebase";
 import { login, logout } from "./features/userSlice";
 import { useDispatch } from "react-redux";
+import { Widgets } from "./componants/widgets/Widgets";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function App() {
         <div className="app__body">
           <Sidebar />
           <Feed />
-           <widget />
+           <Widgets /> 
         </div>
       )}
     </div>
