@@ -9,12 +9,20 @@ import { InputOption } from "../inputOption/InputOption";
 import { Post } from "../post/Post";
 import { db } from "../../db/firebase";
 import { serverTimestamp } from "firebase/firestore";
-import { collection, getDocs, query, orderBy, onSnapshot, addDoc } from "firebase/firestore";
+import {
+	collection,
+	getDocs,
+	query,
+	orderBy,
+	addDoc,
+} from "firebase/firestore";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
 
 export const Feed = () => {
 	const [input, setInput] = useState("");
 	const [posts, setPosts] = React.useState([]);
-
+	const user = useSelector(selectUser);
 	useEffect(() => {
 		const fetchPosts = async () => {
 			const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
@@ -33,10 +41,10 @@ export const Feed = () => {
 	const sendPost = (e) => {
 		e.preventDefault();
 		addDoc(collection(db, "posts"), {
-			name: "Hamza Walker",
-			description: "This is a test",
+			name: user.displayName,
+			description: user.email,
 			message: input,
-			photoUrl: "",
+			photoUrl: user.photoUrl || "",
 			timestamp: serverTimestamp(),
 		});
 
