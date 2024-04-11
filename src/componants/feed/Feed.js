@@ -9,7 +9,7 @@ import { InputOption } from "../inputOption/InputOption";
 import { Post } from "../post/Post";
 import { db } from "../../db/firebase";
 import { serverTimestamp } from "firebase/firestore";
-import { collection, getDocs, onSnapshot, addDoc } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, onSnapshot, addDoc } from "firebase/firestore";
 
 export const Feed = () => {
 	const [input, setInput] = useState("");
@@ -17,7 +17,8 @@ export const Feed = () => {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const querySnapshot = await getDocs(collection(db, "posts"));
+			const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
+			const querySnapshot = await getDocs(q);
 			setPosts(
 				querySnapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })),
 			);
@@ -38,6 +39,8 @@ export const Feed = () => {
 			photoUrl: "",
 			timestamp: serverTimestamp(),
 		});
+
+		setInput("");
 	};
 	return (
 		<div className="feed">
