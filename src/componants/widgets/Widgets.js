@@ -21,6 +21,9 @@ export const Widgets = () => {
         <InfoIcon />
       </div>
 			{newsArticle("LinkedIn is back", "Top news - 9099 readers")}
-    </div>
+			{newsArticle("Coronavirus is a hoax: UK updates", "Top news - 886 readers")}
+			{newsArticle("Tesla hits new highs", "Cars & auto - 300 readers")}
+			{newsArticle("Bitcoin breaks $70k", "Crypto - 3000 readers")}
+		</div>
   );
 };
