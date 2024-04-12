@@ -14,6 +14,7 @@
 .header__left {
   display: flex;
   align-items: center;
+  margin-left: -210px;
 }
 
 .header__left > img {
