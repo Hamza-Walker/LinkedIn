@@ -8,5 +8,5 @@
 - Firebase:
 
 
-### Linkedin app was deployes using firebase.
+### Linkedin app was deployed using firebase.
 https://linkedin-7677b.web.app
