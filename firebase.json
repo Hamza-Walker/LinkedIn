@@ -1,5 +1,5 @@
 {
-  "hosting": {
+ "hosting": {
     "public": "build",
     "ignore": [
       "firebase.json",
@@ -12,5 +12,6 @@
         "destination": "/index.html"
       }
     ]
-  }
+ }
 }
+
